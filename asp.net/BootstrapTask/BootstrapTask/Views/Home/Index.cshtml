@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container px-4 px-lg-5 h-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-8 align-self-end">
+                <h1 class="text-white font-weight-bold">Your Favorite Place for Free Bootstrap Themes</h1>
+                <hr class="divider" />
+            </div>
+
+            <!--student Data-->
+            @helper MyData(string[] temp)
+            {
+                <ul>
+                    @foreach (var item in temp)
+                    {
+                        <li>@item</li>
+                    }
+                </ul>
+
+            }
+            <table border="1" class="table table-hover table-bordered table-striped">
+                <tr>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>Dept</td>
+                    <td>City</td>
+                    <td>Country</td>
+                    <td>Length</td>
+                    <td>Reverse</td>
+                    <td>Age</td>
+                    <td>Select/not select</td>
+                </tr>
+                <br />
+                @{
+                    int count = 0;
+                }
+                @foreach (var item in Model)
+                {
+                    count++;
+                    var rowClass = count % 2 == 0 ? "bg-primary" : "bg-warning";
+
+                    //reverse name
+
+                    string reversedName = "";
+                    for (int i = item.Name.Length - 1; i >= 0; i--)
+                    {
+                        reversedName += item.Name[i];
+                    }
+
+
+            <tr class="@rowClass">
+
+                <td><label>@item.ID</label></td>
+                <td><label>@item.Name</label></td>
+                <td><label>@item.Dept</label></td>
+                <td><label>@item.City</label></td>
+
+                <td>
+                    @foreach (var i in (List<string>)ViewBag.Country)
+                    {
+                        @i
+
+                    }
+                </td>
+                <td><label>@item.Name.Length</label></td>
+                <td><label>@reversedName</label></td>
+                <td><label>@item.Age</label></td>
+                   
+                <td>
+                    @if (@item.Age > 22)
+                {
+                    <p>selected</p>
+                    }
+                    else if(@item.Age < 22)
+                    {
+                        <p>Not Selected</p>
+                    }
+                    else
+                    {
+                    <p>--------</p>
+                }
+                </td>
+            </tr>
+                }
+            </table>
+            <strong></strong>
+
+            <div class="col-lg-8 align-self-baseline">
+                <p class="text-white-75 mb-5">Start Bootstrap can help you build better websites using the Bootstrap framework! Just download a theme and start customizing, no strings attached!</p>
+                <a class="btn btn-primary btn-xl" href="#about">Find Out More</a>
+            </div>
+        </div>
+    </div>
+</header>
+

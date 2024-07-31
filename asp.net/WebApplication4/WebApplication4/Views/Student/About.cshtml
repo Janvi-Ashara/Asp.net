@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>About</title>
+</head>
+<body>
+    <div> 
+        <h1>hello</h1>
+        <ul>
+           @foreach(var item in (List<String>)ViewBag.Country)
+            {
+                <li>@item</li>
+            }
+        </ul>
+    </div>
+</body>
+</html>

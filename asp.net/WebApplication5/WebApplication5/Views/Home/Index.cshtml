@@ -1,0 +1,37 @@
+﻿@model WebApplication5.Models.Student
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h3>Registration Form</h3>
+@{
+    List<SelectListItem> obj = new List<SelectListItem>()
+{   new SelectListItem(){Text="Rajkot" , Value = "1"},
+        new SelectListItem(){Text="Mumbai" , Value = "2",Selected=true},
+        new SelectListItem(){Text="Pune" , Value = "3"},
+    };
+}
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+
+    <label for="fname" class="col-sm-2 col-form-label">First Name :</label>
+    @Html.TextBoxFor(m => m.fname, "", new { @class = "form-control" })
+    <br />
+    <label for="lname" class="col-sm-2 col-form-label">Last Name :</label>
+    @*@Html.TextBox("lname", "", new { @class = "form-control" })*@
+    @Html.TextBoxFor(m=>m.lname, "", new { @class = "form-control" })
+    <br />
+    <label for="Address" class="col-sm-2 col-form-label">Address :</label>
+    @Html.TextAreaFor(m=>m.add)
+    <br />
+
+    <label for="male">Male</label>
+    @Html.RadioButtonFor(m=>m.gender ,"Male")
+    <label for="female">Female</label>
+    @Html.RadioButtonFor(m => m.gender, "Female")
+    <br />
+    @Html.DropDownListFor(m=>m.city, obj)
+    <br />
+    <br />
+    <input type="submit" />
+}

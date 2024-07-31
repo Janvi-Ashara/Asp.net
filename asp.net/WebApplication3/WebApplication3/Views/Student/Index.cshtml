@@ -1,0 +1,64 @@
+﻿@model List<WebApplication3.Models.Student>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @helper MyData(string[] temp) { 
+        <ul>
+            @foreach (var item in temp)
+    {
+                <li>@item</li>
+    }
+        </ul>
+    
+    }
+    <div>
+        <a href="~/Student/About">About</a>
+        <a href="~/Student/Contact">Contact</a>
+        
+
+        <table border="2" >
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Dept</td>
+                <td>City</td>
+                <td>Country</td>
+            </tr>
+            <br />
+
+
+            @foreach (var item in Model)
+            {
+             
+                <tr>
+                    <td><label>@item.ID</label></td>
+                    <td><label>@item.Name</label></td>
+                    <td><label>@item.Dept</label></td>
+                    <td><label>@item.City</label></td>
+                    <td>@foreach (var i in (List<string>)ViewBag.Country)
+                    {
+                        @i
+
+                    }</td>
+                    
+                </tr>
+            }
+            </table>
+        <div>
+            Country List
+            @MyData(new string[] {"India", "USA"})
+            Country List
+            @MyData(new string[] { "India", "UK" })
+        </div>
+    </div>
+</body>
+</html>
