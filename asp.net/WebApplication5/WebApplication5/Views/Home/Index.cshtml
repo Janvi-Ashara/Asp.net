@@ -33,5 +33,29 @@
     @Html.DropDownListFor(m=>m.city, obj)
     <br />
     <br />
-    <input type="submit" />
+    <button type="submit" value="submit" name="btn" >Submit</button>
 }
+</br>
+</br>
+<div>
+    <table class="bg-primary table table-hover">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>Gender</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@ViewBag.f</td>
+                <td>@ViewBag.l</td>
+                <td>@ViewBag.a</td>
+                <td>@ViewBag.g</td>
+                <td>@ViewBag.c</td>
+            </tr>
+        </tbody>
+    </table> 
+</div>

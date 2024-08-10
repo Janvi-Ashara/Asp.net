@@ -1,0 +1,44 @@
+﻿@model List<Database.Models.student>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<body>
+    <div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Department</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.fname</td>
+                        <td>@item.lname</td>
+                        <td>@item.dept</td>
+                        <td>@Html.ActionLink("delete", "delete", new { id = item.Id })</td>
+                    </tr>
+   }
+            </tbody>
+        </table>
+    </div>
+</body> : 
+
+@*o/p : 
+Index
+Id	First Name	Last Name	Department	Delete
+1	janvi	ashara	mca	delete
+2	reesha	marsonia	mca	delete
+3	amee	ashara	mba	delete
+4	prathna	patel	mcom	delete
+5	shlok	shah	mtech	delete
+8	radhe	krishna	devotion	delete*@

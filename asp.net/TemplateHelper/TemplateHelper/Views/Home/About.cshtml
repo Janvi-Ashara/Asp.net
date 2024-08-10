@@ -1,0 +1,20 @@
+﻿@model TemplateHelper.Models.student
+@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<h1>
+    @using (Html.BeginForm("Index", "Home",FormMethod.Post))
+    {
+        @Html.DisplayFor(m => m.city)
+        @Html.DisplayForModel()
+    }
+    </h1>
+<h2>
+     @Html.EditorFor(m=>m.dept)
+    @Html.EditorForModel()
+</h2>
+<p>Use this area to provide additional information.</p>
+                                                 

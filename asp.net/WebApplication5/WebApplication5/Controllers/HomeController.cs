@@ -17,6 +17,11 @@ namespace WebApplication5.Controllers
         [HttpPost]
         public ActionResult Index(Student s)
         {
+            ViewBag.f = s.fname;
+            ViewBag.l = s.lname;
+            ViewBag.a = s.add;
+            ViewBag.g = s.gender;
+            ViewBag.c = s.city;
             return View(s);
         }
 

@@ -32,7 +32,7 @@ namespace WebApplication3
         {
             var sb = new StringBuilder("<ul class=list-group>");
                 foreach(var item in items)
-            {
+            { 
                 sb.AppendFormat("<li class=list-group-item>{0}</li>", item);
             }
             return new MvcHtmlString(sb.ToString());

@@ -40,7 +40,7 @@ namespace WebApplication3.Controllers
 
             ViewBag.Country = new List<String>() { "India", "Aus" };
             //  ViewBag.TotalStudents = studentList.Count();
-            return View(studentList);
+            return View(studentList);                                                            
     }
 
         public ActionResult About()
