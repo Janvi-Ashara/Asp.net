@@ -9,26 +9,38 @@ namespace Database.Controllers
 {
     public class StudentController : Controller
     {
+        MydbEntities db = new MydbEntities();
         // GET: Student
         public ActionResult Index()
         {
-            MydbEntities db = new MydbEntities();
+
             List<student> stds = db.students.ToList();
             return View(stds);
         }
-         public ActionResult Registration()
+        public ActionResult Registration(int? id)
         {
-            return View();
+            student std = db.students.Find(id);
+            return View(std);
         }
         [HttpPost]
         public ActionResult Registration(student s)
         {
-            MydbEntities db = new MydbEntities();
-            db.students.Add(s);
+            if (s.Id != 0)
+            {
+                student std = db.students.Find(s.Id);
+                std.fname = s.fname;
+                std.lname = s.lname;
+                std.dept = s.dept;
+            }
+            else
+            {
+                db.students.Add(s);
+            }
             db.SaveChanges();
             return RedirectToAction("Index");
-            return View();
+
         }
+    
         public ActionResult delete(int Id)
         {
             MydbEntities db = new MydbEntities();

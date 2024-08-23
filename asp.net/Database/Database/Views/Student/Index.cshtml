@@ -15,18 +15,20 @@
                     <th>Last Name</th>
                     <th>Department</th>
                     <th>Delete</th>
+                    <th>Edit</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>@item.Id</td>
-                        <td>@item.fname</td>
-                        <td>@item.lname</td>
-                        <td>@item.dept</td>
-                        <td>@Html.ActionLink("delete", "delete", new { id = item.Id })</td>
-                    </tr>
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.fname</td>
+                    <td>@item.lname</td>
+                    <td>@item.dept</td>
+                    <td>@Html.ActionLink("delete", "delete", new { id = item.Id })</td>
+                    <td>@Html.ActionLink("edit", "Registration", new { id = item.Id })</td>
+                </tr>
    }
             </tbody>
         </table>
